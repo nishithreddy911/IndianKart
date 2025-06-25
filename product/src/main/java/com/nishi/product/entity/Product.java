@@ -15,24 +15,24 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
     @Column(nullable = false)
-    public String name;
+    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    public Category categoryId;
+    @JoinColumn(name = "category_id")
+    private Category categoryId;
 
     @Column(nullable = false)
-    public String description;
+    private String description;
 
     @Column(nullable = false)
-    public Double price;
+    private Double price;
 
     @Column
-    public LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     @Column
-    public LocalDateTime updatedAt;
+    private LocalDateTime updatedAt;
 }
