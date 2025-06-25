@@ -72,7 +72,9 @@ public class UserService {
         }
 
         Address updatedAddress = addressRepo.save(Utils.toAddress(userDTO.getAddress()));
-        User updatedUser = userRepo.save(Utils.toUser(userDTO));
+        existingUser = Utils.toUser(userDTO);
+        existingUser.setAddress(updatedAddress);
+        User updatedUser = userRepo.save(existingUser);
 
         UserDTO responseDTO = Utils.toUserDTO(updatedUser);
         responseDTO.setAddress(Utils.toAddressDTO(updatedAddress));
