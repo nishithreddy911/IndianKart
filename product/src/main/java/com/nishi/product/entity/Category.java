@@ -13,12 +13,12 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
     @Column
-    public String name;
+    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    public Category parentId;
+    @JoinColumn(name = "parent_id")
+    private Category parentId;
 }

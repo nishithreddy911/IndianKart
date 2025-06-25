@@ -1,36 +1,40 @@
 package com.nishi.user.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
     @Column(nullable = false)
-    public String name;
+    private String name;
 
     @Column(name = "mobile_number", nullable = false)
-    public String mobileNumber;
+    private String mobileNumber;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public Address address;
+    private Address address;
 
     @Column(name = "created_by")
-    public String createdBy;
+    private String createdBy;
 
     @Column(name = "created_date")
-    public LocalDateTime createdDate;
+    private LocalDateTime createdDate;
 
     @Column(name = "updated_by")
-    public String updatedBy;
+    private String updatedBy;
 
     @Column(name = "updated_date")
-    public LocalDateTime updatedDate;
+    private LocalDateTime updatedDate;
 }
